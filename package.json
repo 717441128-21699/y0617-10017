@@ -1,27 +1,41 @@
 {
   "name": "ab-test-sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "前端A/B测试SDK",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react.js",
+      "require": "./dist/react.js",
+      "types": "./dist/react.d.ts"
+    },
+    "./vue": {
+      "import": "./dist/vue.js",
+      "require": "./dist/vue.js",
+      "types": "./dist/vue.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "react": ["./dist/react.d.ts"],
+      "vue": ["./dist/vue.d.ts"]
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "lint": "eslint 'src/**/*.ts'",
     "typecheck": "tsc --noEmit"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "vue": ">=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    },
-    "vue": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
@@ -29,7 +43,7 @@
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.0",
     "react": "^18.0.0",
-    "typescript": "^4.8.0",
+    "typescript": "^4.9.5",
     "vue": "^3.0.0"
   }
 }

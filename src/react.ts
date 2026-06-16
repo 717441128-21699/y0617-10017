@@ -1,4 +1,4 @@
-export { ABTestSDK } from './core/ABTestSDK';
+export { useExperiment } from './react/useExperiment';
 export {
   initABTest,
   getABTest,
